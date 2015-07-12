@@ -818,6 +818,7 @@ check_same_host_or_net(SockAddr *raddr, IPCompareMethod method)
  * to have set a memory context that will be reset if this function returns
  * NULL.
  */
+/* KB: this is parsing the hba line. we want to pull out our options */
 static HbaLine *
 parse_hba_line(List *line, int line_num, char *raw_line)
 {
@@ -875,6 +876,7 @@ parse_hba_line(List *line, int line_num, char *raw_line)
 #ifdef USE_SSL
 			if (EnableSSL)
 				parsedline->conntype = ctHostSSL;
+				/* KB: can we get more options into here. I want to default to 'cn', but allow other value for user name */
 			else
 			{
 				ereport(LOG,
@@ -2048,6 +2050,7 @@ check_ident_usermap(IdentLine *identLine, const char *usermap_name,
  *
  *	Iff authorized, return STATUS_OK, otherwise return STATUS_ERROR.
  */
+/* KB: the common name comes in as auth_user */
 int
 check_usermap(const char *usermap_name,
 			  const char *pg_role,

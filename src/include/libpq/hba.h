@@ -61,7 +61,8 @@ typedef struct HbaLine
 	IPCompareMethod ip_cmp_method;
 	char	   *hostname;
 	UserAuth	auth_method;
-
+/**/
+	char     *ssluserfield;
 	char	   *usermap;
 	char	   *pamservice;
 	bool		ldaptls;

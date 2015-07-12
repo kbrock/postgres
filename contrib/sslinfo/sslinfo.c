@@ -208,6 +208,7 @@ X509_NAME_field_to_text(X509_NAME *name, text *fieldName)
  * OpenSSL.  Returns null if no client certificate is present, or if
  * there is no field with such name in the certificate.
  */
+ /* KB: this function is of interest */
 PG_FUNCTION_INFO_V1(ssl_client_dn_field);
 Datum
 ssl_client_dn_field(PG_FUNCTION_ARGS)

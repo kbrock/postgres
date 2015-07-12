@@ -429,6 +429,7 @@ aloop:
 	port->peer = SSL_get_peer_certificate(port->ssl);
 
 	/* and extract the Common Name from it. */
+	/* KB: do we want to extract something else for authentication*/
 	port->peer_cn = NULL;
 	port->peer_cert_valid = false;
 	if (port->peer != NULL)

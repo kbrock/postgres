@@ -2150,6 +2150,7 @@ CheckCertAuth(Port *port)
 	}
 
 	/* Just pass the certificate CN to the usermap check */
+	/* KB: pass in something other than port->peer_cn */
 	return check_usermap(port->hba->usermap, port->user_name, port->peer_cn, false);
 }
 #endif
